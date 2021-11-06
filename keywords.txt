@@ -1,0 +1,25 @@
+###########################################
+# Syntax Coloring Map KeyboardDecoder
+###########################################
+
+###########################################
+# Datatypes	(KEYWORD1)
+###########################################
+
+KeyboardDecoder	KEYWORD1
+
+###########################################
+# Methods and Functions	(KEYWORD2)
+###########################################
+
+ChattBlock	KEYWORD2
+GetNum		KEYWORD2
+GetPlus		KEYWORD2
+GetMinus	KEYWORD2
+GetMultiply	KEYWORD2
+GetDivision	KEYWORD2
+GetPlMi		KEYWORD2
+GetBackSpace	KEYWORD2
+GetAC		KEYWORD2
+GetC		KEYWORD2
+GetShift	KEYWORD2
