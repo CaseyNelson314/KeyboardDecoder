@@ -23,7 +23,6 @@
 class KeyboardDecoder {
 
   private:
-    byte DelayTime;
     byte inputpin;
     int  input;
     bool Olddata[20];
@@ -34,16 +33,10 @@ class KeyboardDecoder {
     KeyboardDecoder(byte INPUTPIN): inputpin(INPUTPIN) {}
 
     void Update() {
-      if ((Time = millis()) - OldTime > DelayTime) {
-        input = analogRead(inputpin);
-        int  analogtable[21] = {24, 73, 121, 168, 214, 259, 304, 349, 394, 440, 486, 534, 583, 633, 685, 740, 797, 857, 921, 988, 1023};
-        for (int i = 0; i < 20; i++) Clickdata[i] = !Olddata[i] * (Olddata[i] = (analogtable[i] < input) * (input <= analogtable[i + 1]));
-        OldTime = Time;
-      }
-    }
-
-    void ChattBlock(int DELAYTIME) {
-      DelayTime = DELAYTIME;
+      input = analogRead(inputpin);
+      int  analogtable[21] = {24, 73, 121, 168, 214, 259, 304, 349, 394, 440, 486, 534, 583, 633, 685, 740, 797, 857, 921, 988, 1023};
+      for (int i = 0; i < 20; i++) Clickdata[i] = !Olddata[i] * (Olddata[i] = (analogtable[i] < input) * (input <= analogtable[i + 1]));
+      OldTime = Time;
     }
 
     bool GetNum(byte RequestNum) {
@@ -55,7 +48,7 @@ class KeyboardDecoder {
       return Clickdata[11];
     }
     bool GetMinus() {     //-
-      return Clickdata[17];
+      return Clickdata[15];
     }
     bool GetMultiply() {  //*
       return Clickdata[7];
@@ -63,7 +56,7 @@ class KeyboardDecoder {
     bool GetDivision() {  ///
       return Clickdata[3];
     }
-    bool GetDivision() {     //=
+    bool GetEqual() {     //=
       return Clickdata[19];
     }
     bool GetPlMi() {      //±
